@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
+using TaskAPI.Services;
+using TaskAPI.Models;
 
 namespace TaskAPI.Controllers
 {
@@ -8,31 +10,43 @@ namespace TaskAPI.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Tasks()
+        DummyData dataService;
+        public TasksController()
         {
-            var strArray = new string[] { "Task 1", "Task 2", "Task 3" };
-            return Ok(strArray);
+            dataService = new DummyData();
         }
-
-        [HttpPost]
-        public IActionResult NewTask()
+        [HttpGet]
+        public IActionResult GetTasks()
         {
             
-            return new JsonResult(new { message = "completed", welcome="helo Kanchana" });
-         }
-
-        [HttpDelete]
-        public IActionResult DeleteTask(int number)
-        {
-            string n;
-            if (number==1)
-            {
-                n = "Number 1";
-                return Ok(n);
-            }
-            n = "Number 0";
-            return BadRequest(n);
+            var tasks = dataService.TaskList();
+            return Ok(tasks);
         }
+
+        [HttpGet("{ID?}")]
+        public IActionResult GetTasksByID(int? ID)
+        {
+            if( ID is null)
+            {
+                GetTasks();
+            }
+            
+            var tasks = from task in dataService.TaskList()
+                        where task.Id == ID
+                        select task;
+            //var tasks = dummyData.TaskList().Where(t => t.Id == ID);
+            return Ok(tasks);
+        }
+
+        //[HttpGet("{Status:alpha}")]
+        //public IActionResult GetTasksByStatus(TaskStatusEnum Status)
+        //{
+        //    
+        //    var tasks = from task in dataService.TaskList()
+        //                where task.Status == Status
+        //                select task;
+        //    return Ok(tasks);
+        //}
+
     }
 }
