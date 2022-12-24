@@ -10,7 +10,7 @@ namespace TaskAPI.Services
             var task1 = new Models.Task()
             {
                 Id = 1,
-                Todo = "Complete Java OOP Assignment",
+                Todo = "Complete Java OOP Assignment From Dummy Data",
                 Due = DateTime.Now.AddDays(2),
                 Status = Models.TaskStatusEnum.Completed,
             };
@@ -19,7 +19,7 @@ namespace TaskAPI.Services
             var task2 = new Models.Task()
             {
                 Id = 2,
-                Todo = "Complete Graphics Assignment",
+                Todo = "Complete Graphics Assignment From Dummy Data",
                 Due = DateTime.Now.AddDays(5),
                 Status = Models.TaskStatusEnum.InProgress,
             };
@@ -28,7 +28,7 @@ namespace TaskAPI.Services
             var task3 = new Models.Task()
             {
                 Id = 3,
-                Todo = "Complete Database Stored Proc Tutorial",
+                Todo = "Complete Database Stored Proc Tutorial From Dummy Data",
                 Due = DateTime.Now.AddDays(3),
                 Status = Models.TaskStatusEnum.Completed,
             };

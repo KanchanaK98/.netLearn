@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskAPI.Data;
 
@@ -11,9 +12,11 @@ using TaskAPI.Data;
 namespace TaskAPI.Data.Migrations
 {
     [DbContext(typeof(TaskDBContext))]
-    partial class TaskDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221224061053_AuthorandTaskSeeder")]
+    partial class AuthorandTaskSeeder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -10,9 +10,9 @@ namespace TaskAPI.Controllers
     public class TasksController : ControllerBase
     {
         private readonly ITasksRepository dataService;
-        public TasksController()
+        public TasksController(ITasksRepository repository)
         {
-            dataService = new DummyData();
+            dataService = repository;
         }
         [HttpGet]
         public IActionResult GetTasks()
