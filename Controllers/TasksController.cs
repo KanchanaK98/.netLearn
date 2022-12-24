@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TaskAPI.Services;
-using TaskAPI.Models;
 
 namespace TaskAPI.Controllers
 {
@@ -10,7 +9,7 @@ namespace TaskAPI.Controllers
     [ApiController]
     public class TasksController : ControllerBase
     {
-        DummyData dataService;
+        private readonly ITasksRepository dataService;
         public TasksController()
         {
             dataService = new DummyData();

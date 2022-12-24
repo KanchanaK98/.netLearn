@@ -2,7 +2,7 @@
 
 namespace TaskAPI.Services
 {
-    public class DummyData
+    public class DummyData : ITasksRepository
     {
         public List<Models.Task> TaskList()
         {
