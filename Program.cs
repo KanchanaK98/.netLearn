@@ -14,6 +14,7 @@ builder.Services.AddSwaggerGen();
 
 //dependancy injection
 builder.Services.AddScoped<ITasksRepository, TaskSQLServerService>();
+builder.Services.AddScoped<IAuthorsRepository, AuthorSQLServerService>();
 //builder.Services.ConfigureServices(
 //    services =>
 //        services.AddHostedService<TasksController>()
